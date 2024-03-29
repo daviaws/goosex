@@ -9,7 +9,7 @@ defmodule Goosex.Application do
   def start(_type, _args) do
     children = [
       GoosexWeb.Telemetry,
-      Goosex.Repo,
+      # Goosex.Repo,
       {DNSCluster, query: Application.get_env(:goosex, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Goosex.PubSub},
       # Start the Finch HTTP client for sending emails
