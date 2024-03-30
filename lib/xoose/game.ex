@@ -1,4 +1,4 @@
-defmodule Goosex.Game do
+defmodule Xoose.Game do
   @moduledoc """
   Abstraction for game process
     it is compatible for both local or distributed processes
@@ -6,7 +6,7 @@ defmodule Goosex.Game do
 
   require Logger
 
-  alias Goosex.Processes
+  alias Xoose.Processes
 
   @type types() :: :local | :distributed
 
@@ -17,7 +17,7 @@ defmodule Goosex.Game do
   """
   @spec refresh_players(%__MODULE__{}) :: %__MODULE__{}
   def refresh_players(game, skip_pid \\ nil) do
-    Logger.debug("[Goosex.Game] refreshing players")
+    Logger.debug("[Xoose.Game] refreshing players")
 
     players =
       Enum.map(game.pids, fn pid ->
@@ -34,15 +34,15 @@ defmodule Goosex.Game do
   @doc """
   Assign and trigger game role / action
   """
-  @spec assign(%__MODULE__{}, :chooser) :: %__MODULE__{}
-  def assign(%{players: []}, :chooser), do: throw("Restart game: nobody to assign")
+  @spec assign(%__MODULE__{}, :xooser) :: %__MODULE__{}
+  def assign(%{players: []}, :xooser), do: throw("Restart game: nobody to assign")
 
-  def assign(%{players: players} = game, :chooser) do
-    chooser = Enum.find(players, &(&1.type == :chooser)) || Enum.random(players)
-    Logger.debug("[Goosex.Game] assign chooser #{chooser.id} #{inspect(chooser.pid)}")
+  def assign(%{players: players} = game, :xooser) do
+    xooser = Enum.find(players, &(&1.type == :xooser)) || Enum.random(players)
+    Logger.debug("[Xoose.Game] assign xooser #{xooser.id} #{inspect(xooser.pid)}")
 
-    if Process.alive?(chooser.pid) do
-      send(chooser.pid, {:assign, :chooser})
+    if Process.alive?(xooser.pid) do
+      send(xooser.pid, {:assign, :xooser})
     end
 
     game

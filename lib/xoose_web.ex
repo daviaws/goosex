@@ -1,12 +1,12 @@
-defmodule GoosexWeb do
+defmodule XooseWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use GoosexWeb, :controller
-      use GoosexWeb, :html
+      use XooseWeb, :controller
+      use XooseWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule GoosexWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: GoosexWeb.Layouts]
+        layouts: [html: XooseWeb.Layouts]
 
       import Plug.Conn
-      import GoosexWeb.Gettext
+      import XooseWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule GoosexWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {GoosexWeb.Layouts, :app}
+        layout: {XooseWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule GoosexWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import GoosexWeb.CoreComponents
-      import GoosexWeb.Gettext
+      import XooseWeb.CoreComponents
+      import XooseWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule GoosexWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: GoosexWeb.Endpoint,
-        router: GoosexWeb.Router,
-        statics: GoosexWeb.static_paths()
+        endpoint: XooseWeb.Endpoint,
+        router: XooseWeb.Router,
+        statics: XooseWeb.static_paths()
     end
   end
 

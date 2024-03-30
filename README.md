@@ -1,4 +1,4 @@
-# goosex
+# xoose
 
 It's a goose goose duck implementation in Elixir.
 It covers basic concepts about clustering and elastic scaling.
@@ -41,7 +41,7 @@ agree to reach consensus.
 
 we started this project with phx.new defaults
 ```sh
-mix phx.new goosex
+mix phx.new xoose
 ```
 
 # Phoenix Server
@@ -59,6 +59,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 Run the server as `iex -S mix phx.server`
 
-Then you can run a default of 5 players: `Goosex.start_local()`
+Then you can run a default of 5 players: `Xoose.start_local()`
 
-Or you can run a custom number of players: `Goosex.start_local(10)`
+Or you can run a custom number of players: `Xoose.start_local(10)`

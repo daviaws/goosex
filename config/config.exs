@@ -7,19 +7,19 @@
 # General application configuration
 import Config
 
-config :goosex,
-  ecto_repos: [Goosex.Repo],
+config :xoose,
+  ecto_repos: [Xoose.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :goosex, GoosexWeb.Endpoint,
+config :xoose, XooseWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: GoosexWeb.ErrorHTML, json: GoosexWeb.ErrorJSON],
+    formats: [html: XooseWeb.ErrorHTML, json: XooseWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Goosex.PubSub,
+  pubsub_server: Xoose.PubSub,
   live_view: [signing_salt: "nJNGboOO"]
 
 # Configures the mailer
@@ -29,12 +29,12 @@ config :goosex, GoosexWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :goosex, Goosex.Mailer, adapter: Swoosh.Adapters.Local
+config :xoose, Xoose.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  goosex: [
+  xoose: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -44,7 +44,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.0",
-  goosex: [
+  xoose: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

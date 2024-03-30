@@ -1,12 +1,12 @@
-defmodule GoosexWeb.ErrorHTML do
-  use GoosexWeb, :html
+defmodule XooseWeb.ErrorHTML do
+  use XooseWeb, :html
 
   # If you want to customize your error pages,
   # uncomment the embed_templates/1 call below
   # and add pages to the error directory:
   #
-  #   * lib/goosex_web/controllers/error_html/404.html.heex
-  #   * lib/goosex_web/controllers/error_html/500.html.heex
+  #   * lib/xoose_web/controllers/error_html/404.html.heex
+  #   * lib/xoose_web/controllers/error_html/500.html.heex
   #
   # embed_templates "error_html/*"
 

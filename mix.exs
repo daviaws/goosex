@@ -1,9 +1,9 @@
-defmodule Goosex.MixProject do
+defmodule Xoose.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :goosex,
+      app: :xoose,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule Goosex.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Goosex.Application, []},
+      mod: {Xoose.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -76,10 +76,10 @@ defmodule Goosex.MixProject do
       # test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       test: ["test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind goosex", "esbuild goosex"],
+      "assets.build": ["tailwind xoose", "esbuild xoose"],
       "assets.deploy": [
-        "tailwind goosex --minify",
-        "esbuild goosex --minify",
+        "tailwind xoose --minify",
+        "esbuild xoose --minify",
         "phx.digest"
       ]
     ]

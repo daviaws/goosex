@@ -1,4 +1,4 @@
-defmodule GoosexWeb.Telemetry do
+defmodule XooseWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -52,23 +52,23 @@ defmodule GoosexWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("goosex.repo.query.total_time",
+      summary("xoose.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("goosex.repo.query.decode_time",
+      summary("xoose.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("goosex.repo.query.query_time",
+      summary("xoose.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("goosex.repo.query.queue_time",
+      summary("xoose.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("goosex.repo.query.idle_time",
+      summary("xoose.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -86,7 +86,7 @@ defmodule GoosexWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {GoosexWeb, :count_users, []}
+      # {XooseWeb, :count_users, []}
     ]
   end
 end

@@ -1,4 +1,4 @@
-defmodule GoosexWeb.CoreComponents do
+defmodule XooseWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -17,7 +17,7 @@ defmodule GoosexWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import GoosexWeb.Gettext
+  import XooseWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -660,9 +660,9 @@ defmodule GoosexWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(GoosexWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(XooseWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(GoosexWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(XooseWeb.Gettext, "errors", msg, opts)
     end
   end
 

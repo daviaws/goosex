@@ -1,12 +1,12 @@
-defmodule GoosexWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :goosex
+defmodule XooseWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :xoose
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_goosex_key",
+    key: "_xoose_key",
     signing_salt: "xLbhXTPa",
     same_site: "Lax"
   ]
@@ -21,9 +21,9 @@ defmodule GoosexWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :goosex,
+    from: :xoose,
     gzip: false,
-    only: GoosexWeb.static_paths()
+    only: XooseWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -31,7 +31,7 @@ defmodule GoosexWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    # plug Phoenix.Ecto.CheckRepoStatus, otp_app: :goosex
+    # plug Phoenix.Ecto.CheckRepoStatus, otp_app: :xoose
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -49,5 +49,5 @@ defmodule GoosexWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug GoosexWeb.Router
+  plug XooseWeb.Router
 end

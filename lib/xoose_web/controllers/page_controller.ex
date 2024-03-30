@@ -1,5 +1,5 @@
-defmodule GoosexWeb.PageController do
-  use GoosexWeb, :controller
+defmodule XooseWeb.PageController do
+  use XooseWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

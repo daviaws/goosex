@@ -1,4 +1,4 @@
-defmodule Goosex.Processes do
+defmodule Xoose.Processes do
   @moduledoc """
   Tools for working with processes
   """

@@ -1,5 +1,5 @@
-defmodule GoosexWeb.PageControllerTest do
-  use GoosexWeb.ConnCase
+defmodule XooseWeb.PageControllerTest do
+  use XooseWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")
