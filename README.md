@@ -32,6 +32,10 @@ agree to reach consensus.
 1. start project basics (phx.new) ✅
 2. basic business logic (local game) ✅
 3. dynamically distribute just one Player process per node
+3.1. libcluster: using gossip (it accepts k8s as protocol also) for cluster healing/formation
+3.2. NodeListener: to handle joins and downs of nodes
+3.3. stablish a dynamic supervisor (on horde concept of dynamic supervision shared across the cluster's nodes)
+3.4. adequate supervision tree: respawn died and unconnected quorum nodes on netsplit
 4. http route for querying Player type
 5. handling quorum netsplit
 
