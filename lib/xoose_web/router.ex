@@ -18,6 +18,9 @@ defmodule XooseWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    get "/players", PlayerController, :index
+    get "/player", PlayerController, :show
   end
 
   # Other scopes may use custom stacks.

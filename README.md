@@ -36,7 +36,7 @@ agree to reach consensus.
 3.2. stablish dynamic players across cluster ✅
 3.3. NodeListener: to handle joins and downs of nodes ✅
 3.4. adequate supervision tree: respawn died and unconnected quorum nodes on netsplit ✅
-4. http route for querying Player type 
+4. http route for querying Player type ✅
 
 # Before Start
 
@@ -91,6 +91,13 @@ In case of node down / netsplit it will be automatic quorum resolution after 1 s
 The game only will end if there is no suficient quorum then it will need a manual `Xoose.start_distributed`.
 
 Else: the game can resume itself with elastic scaling.
+
+# Checking http status
+http://localhost:4000/player
+http://localhost:4000/players
+
+**4000** change the port for the node which you want to address
+
 
 **Tip: for simulating a netsplit out of quorum:**
 1. I used terminator terminal

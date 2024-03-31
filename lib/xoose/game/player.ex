@@ -30,6 +30,10 @@ defmodule Xoose.Game.Player do
     GenServer.multi_call(name(1), :start)
   end
 
+  def player(node, id \\ 1) do
+    GenServer.call({Xoose.Game.Player.name(id), node}, :player)
+  end
+
   def stop(node, reason, id \\ 1) do
     GenServer.stop({Xoose.Game.Player.name(id), node}, reason)
   end
