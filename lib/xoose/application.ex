@@ -9,7 +9,7 @@ defmodule Xoose.Application do
   def start(_type, _args) do
     topologies = [
       gossip: [
-        strategy: Cluster.Strategy.Gossip,
+        strategy: Cluster.Strategy.Gossip
       ]
     ]
 
@@ -24,7 +24,9 @@ defmodule Xoose.Application do
       # Start a worker by calling: Xoose.Worker.start_link(arg)
       # {Xoose.Worker, arg},
       # Start to serve requests, typically the last entry
-      XooseWeb.Endpoint
+      XooseWeb.Endpoint,
+      Xoose.Game.Supervisor,
+      {Xoose.Cluster.NodeListener, Node.self()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

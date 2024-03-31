@@ -1,6 +1,7 @@
 defmodule Xoose.Player do
   @moduledoc """
   Representation of players process in the cluster
+    as a Process
   """
 
   require Logger

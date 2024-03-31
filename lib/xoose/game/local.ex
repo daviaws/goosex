@@ -12,6 +12,8 @@ defmodule Xoose.Game.Local do
   alias Xoose.Game
   alias Xoose.Player
 
+  def start_link(players_n), do: {:ok, __MODULE__.spawn_link(players_n)}
+
   def spawn_link(players_n) do
     Kernel.spawn_link(fn -> init(players_n) end)
   end

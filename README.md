@@ -31,13 +31,12 @@ agree to reach consensus.
 
 1. start project basics (phx.new) ✅
 2. basic business logic (local game) ✅
-3. dynamically distribute just one Player process per node
+3. dynamically distribute just one Player process per node ✅
 3.1. libcluster: using gossip (it accepts k8s as protocol also) for cluster healing/formation ✅
-3.2. NodeListener: to handle joins and downs of nodes
-3.3. stablish a dynamic supervisor (on horde concept of dynamic supervision shared across the cluster's nodes)
-3.4. adequate supervision tree: respawn died and unconnected quorum nodes on netsplit
-4. http route for querying Player type
-5. handling quorum netsplit
+3.2. stablish dynamic players across cluster ✅
+3.3. NodeListener: to handle joins and downs of nodes ✅
+3.4. adequate supervision tree: respawn died and unconnected quorum nodes on netsplit ✅
+4. http route for querying Player type 
 
 # Before Start
 
@@ -75,6 +74,29 @@ PORT=4000 iex --sname a -S mix phx.server
 
 # shell 2
 PORT=4001 iex --sname b -S mix phx.server
-iex(b@davi-dragon)1> Node.list
-  [:"a@davi-dragon"]
+
+# shell 3
+PORT=4002 iex --sname c -S mix phx.server
+
+# shell 4
+PORT=4003 iex --sname d -S mix phx.server
+iex(c@davi-dragon)1> Node.list
+[:"d@davi-dragon", :"a@davi-dragon", :"b@davi-dragon"]
+iex(c@davi-dragon)2> Xoose.start_distributed
+:ok
 ```
+
+In case of node down / netsplit it will be automatic quorum resolution after 1 second of the first node down.
+
+The game only will end if there is no suficient quorum then it will need a manual `Xoose.start_distributed`.
+
+Else: the game can resume itself with elastic scaling.
+
+**Tip: for simulating a netsplit out of quorum:**
+1. I used terminator terminal
+2. then I opened 4 tab (ctrl + shift + e & ctrl + shift + o)
+3. I followed the 4 nodes spawn
+4. now you can test node connection and disconnection logs
+5. you can check the game does not start until `Xoose.start_distributed`
+6. you can then close any 3 nodes before 1 second and check :out_of_quorum restart
+7. any other scenary when there are sufficient quorum the game keeps going
