@@ -1,6 +1,7 @@
 defmodule Xoose.Game.Player do
   @moduledoc """
-  Representation of players process in the cluster
+  Representation of players in the cluster as GenServer
+    for distributed games
   """
 
   use GenServer

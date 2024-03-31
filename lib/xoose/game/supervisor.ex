@@ -1,5 +1,7 @@
 defmodule Xoose.Game.Supervisor do
-  # Automatically defines child_spec/1
+  @moduledoc """
+  Game supervisor for distributed Games
+  """
   use Supervisor
 
   def start_link(init_arg) do
