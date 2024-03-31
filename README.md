@@ -32,7 +32,7 @@ agree to reach consensus.
 1. start project basics (phx.new) ✅
 2. basic business logic (local game) ✅
 3. dynamically distribute just one Player process per node
-3.1. libcluster: using gossip (it accepts k8s as protocol also) for cluster healing/formation
+3.1. libcluster: using gossip (it accepts k8s as protocol also) for cluster healing/formation ✅
 3.2. NodeListener: to handle joins and downs of nodes
 3.3. stablish a dynamic supervisor (on horde concept of dynamic supervision shared across the cluster's nodes)
 3.4. adequate supervision tree: respawn died and unconnected quorum nodes on netsplit
@@ -66,3 +66,15 @@ Run the server as `iex -S mix phx.server`
 Then you can run a default of 5 players: `Xoose.start_local()`
 
 Or you can run a custom number of players: `Xoose.start_local(10)`
+
+# Running clustered (libcluster)
+
+```ex
+# shell 1
+PORT=4000 iex --sname a -S mix phx.server
+
+# shell 2
+PORT=4001 iex --sname b -S mix phx.server
+iex(b@davi-dragon)1> Node.list
+  [:"a@davi-dragon"]
+```

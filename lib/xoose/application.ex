@@ -7,7 +7,14 @@ defmodule Xoose.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = [
+      gossip: [
+        strategy: Cluster.Strategy.Gossip,
+      ]
+    ]
+
     children = [
+      {Cluster.Supervisor, [topologies, [name: Xoose.Cluster]]},
       XooseWeb.Telemetry,
       # Xoose.Repo,
       {DNSCluster, query: Application.get_env(:xoose, :dns_cluster_query) || :ignore},
